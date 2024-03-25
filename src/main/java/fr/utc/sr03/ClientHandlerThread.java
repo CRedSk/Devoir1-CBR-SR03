@@ -17,10 +17,11 @@ public class ClientHandlerThread extends Thread{
     public ClientHandlerThread(Socket socket) { //initialiser les valeurs de pseudo,inputStream et outputStream
         this.clientSocket=socket;
         try {
-
             inputStream = new DataInputStream(clientSocket.getInputStream());
             outputStream = new DataOutputStream(clientSocket.getOutputStream());
-            outputStream.writeUTF("Entrez votre pseudo,svp : ");
+            if(!clientSocket.isClosed()) {
+                outputStream.writeUTF("Entrez votre pseudo,svp : ");
+            }
             String inPseudo=inputStream.readUTF();
             pseudo=inPseudo;
         }
@@ -64,6 +65,7 @@ public class ClientHandlerThread extends Thread{
                     message="L'utilisateur "+this.pseudo+" a quitté la conversation ";
                     exit=true;
                     outputStream.writeUTF("exit");
+                    outputStream.flush();
                     clientSocket.close();
                     outputStream.close();
                     inputStream.close();
