@@ -1,4 +1,4 @@
-package org.example;
+package fr.utc.sr03;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
