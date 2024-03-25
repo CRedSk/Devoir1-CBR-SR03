@@ -1,4 +1,4 @@
-# SR03 Devoir 1
+# SR03 Devoir 1 Chloé BOLLE-REDDAT, Liu RUIXUE
 
  Le but de ce devoir est de créer une application de chat entre différents clients via un serveur, des sockets et des threads. Les sockets permettent d'échanger des informations entre un serveur et un client, or, pour gérer plusieurs clients en même temps, il faut utiliser des threads. Un thread correspond à un client, il y a donc autant de threads créés que de clients dans le chat. Cette application permet à différents utilisateurs de se connecter à un serveur pour pouvoir discuter. 
 L'application fonctionne comme suit : 
