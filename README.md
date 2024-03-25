@@ -26,6 +26,6 @@ Le constructeur permet d'instancier la socket, input et dataInputStream. La mét
 Les attributs de cette classe sont les mêmes que ceux de la classe précédente à la différence près que ce sont outputStream et dataOutputStream. Le constructeur instancie les attributs.
 run() lit d'abord le pseudo du client via l'entrée clavier puis effectue une boucle tant que exit est faux qui lit le message du client via l'entrée clavier et l'envoie à ClientReceiveMessageThread. Lorsqu'exit est vrai, on ferme output et dataOutputStream.
 
-##Conclusion
+### Conclusion
 Pour mettre en place des chats entre différents utilisateurs, nous créons deux classes principales: Serveur et Client. Le serveur continue d'attendre les connexions des clients, et à chque fois qu'une connexion avec un client est établie, un objet de la classe ClientHandlerThread est utilisé pour lire les messages provenent de ce client et envoyer les messages provent autres clients à ce client. De plus, deux autres Threads sont dédiés à la lecture des messages provenant du serveur et à l’envoi des messages saisis par le client au serveur. À chaque fois qu'un nouveau client crée une connexion avec le serveur, la liste de pseudos et la HashMap contenant les coupes de pseudo et childHandlerThread actifs sont mises à jour pour éviter les erreurs. 
 
