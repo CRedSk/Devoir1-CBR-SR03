@@ -1,4 +1,4 @@
-package fr.utc.sr03;
+package org.example;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class ClientSendMessageThread extends Thread {
             ex.printStackTrace();
         }
     }
-    private boolean exit=false;
+    boolean exit=false;
     public void run(){
         try{
             Scanner sc=new Scanner(System.in);
@@ -32,7 +32,7 @@ public class ClientSendMessageThread extends Thread {
                         output.close();
                         dataOutputStream.close();
                         exit=true;
-                        commSocket.close();
+                        //commSocket.close();
                     }
 
                 }
