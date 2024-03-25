@@ -1,13 +1,11 @@
-package org.example;
+package fr.utc.sr03;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 public class Serveur {
     public static void main(String[] args) {
 
@@ -16,10 +14,10 @@ public class Serveur {
         HashMap<String,ClientHandlerThread> clientsPseudoThreadMap=new HashMap<>();
         try {
             ServerSocket serveurSocket = new ServerSocket(10800);
-            System.out.println("attendre les connexions");
-            while (true) { //continuer à accepter les demandes entrantes et pour chaque client,un objet de classe ClientHandlerThread est crée pour stocker le socket de commnunication avec ce client et lire les messagers envoyés par ce client
-                Socket commSocket = serveurSocket.accept();//attendre les connexions
-                //Vérifier que tous les threads dans map ne s'arrêtent pas
+            System.out.println("En attente de connexions...");
+            while (true) { //continue à accepter les demandes entrantes et pour chaque client,un objet de classe ClientHandlerThread est crée pour stocker le socket de commnunication avec ce client et lire les messagers envoyés par ce client
+                Socket commSocket = serveurSocket.accept();//attend les connexions
+                //Supprime les clients déconnectés
                 for (Map.Entry<String,ClientHandlerThread> clientpseudoThread:clientsPseudoThreadMap.entrySet()){
                     if (!clientpseudoThread.getValue().isAlive()){
                         clientsPseudoThreadMap.remove(clientpseudoThread.getKey());
